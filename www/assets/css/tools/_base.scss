@@ -1,0 +1,39 @@
+$_b: #f1f3f9;
+$_n: #222;
+$_clear: #ecf0f1;
+$_midnight: #2c3e50;
+$_wetasphalt: #34495e;
+$_asbestos: #7f8c8d;
+$_hover: rgba(0,0,0,.6);
+
+$_ftZ: 18px;
+
+html, body { height: 100%; }
+body{ background: $_b; font-family: 'arial', 'sans-serif';
+	@include font-size($_ftZ); line-height: 1.70; font-smoothing: subpixel-antialiased
+	}
+	p { max-width: 480px; }
+	a { @extend ._trs; }
+h1, h2, h3, h4, h5 { font-family: 'latobold'; text-transform: uppercase; display: block;
+	}
+	h1 { @include font-size(32px); line-height: 64px; }
+	h2 { @include font-size(28px); line-height: 64px; font-family: 'latolight'; text-align: center; width: 100%; }
+	h3 { text-transform: none; }
+
+input, textarea, button { @include font-size($_ftZ); }
+button { cursor: pointer; }
+input[type='submit']{ cursor: pointer; max-width: 100px; height: 40px; border: 1px solid $_midnight; background: transparent; color: $_midnight; position: relative; @extend ._trs;
+	&._revers { color:$_b; border-color: $_b; }
+	&:hover { background-color: $_midnight; color: $_b; }
+	&._revers:hover { background-color: $_b; color: $_midnight; }
+}
+
+.__btn  { cursor: pointer; display: block; }
+
+.keyline { @include size(60%,1px); background-color: $_midnight; @include opacity(.2); margin: 40px auto; @include clearfix; }
+
+// gestion img cover
+.wh { height: 100%; }
+.ww { width: 100%; }
+._to_center { transform-origin: center center; }
+._trs { transition: all 200ms ease-in-out; }
