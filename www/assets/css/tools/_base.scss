@@ -1,36 +1,61 @@
-$_b: #f1f3f9;
-$_n: #222;
-$_clear: #ecf0f1;
-$_midnight: #2c3e50;
-$_wetasphalt: #34495e;
-$_asbestos: #7f8c8d;
-$_hover: rgba(0,0,0,.6);
+$colors: (
+	font: (
+		p: #eee,
+		a: #f1f3f9,
+		danger: #d32f2f
+	),
+	background: (
+		base: #000,
+		transparent: rgba(0,0,0,.6),
+		darkgrey: #212121,
+		selected: #e0e0e0
+	),
+	light: (
+		background: #b0bec5,
+		white: #eceff1
+	),
+	flash: (
+		danger: #d32f2f,
+		success: #388e3c
+	)
+);
+$z-layers: (
+	bottomless-pit: -9999,
+	default: 1,
+	dropdown: 3000,
+	overlay: 4000,
+	modal: 4001
+);
+$border: 1px solid;
 
 $_ftZ: 18px;
 
 html, body { height: 100%; }
-body{ background: $_b; font-family: 'arial', 'sans-serif';
-	@include font-size($_ftZ); line-height: 1.70; font-smoothing: subpixel-antialiased
-	}
-	p { max-width: 480px; }
-	a { @extend ._trs; }
-h1, h2, h3, h4, h5 { font-family: 'latobold'; text-transform: uppercase; display: block;
-	}
-	h1 { @include font-size(32px); line-height: 64px; }
-	h2 { @include font-size(28px); line-height: 64px; font-family: 'latolight'; text-align: center; width: 100%; }
-	h3 { text-transform: none; }
+body, p, input, button, select, textarea { @include font-size(20px); @include line-height(20); font-family: 'lato', 'helvetica', 'arial', 'sans-serif'; color: color(font,p); }
+article p, form { @include para-max(20); margin: 20px auto; }
+a { color: color(font,a); text-decoration: underline; @extend ._trs; 
+	&:hover { text-decoration: none; }
+}
+h1 { @include font-size(51.2px); @include line-height(51.2); }
+h2 { @include font-size(32px); @include line-height(32); }
+small { @include font-size(12px); @include line-height(12); }
+input, textarea, select { @include size(100%, 40px); border: $border color(font,p); background-color: transparent; 
+	line-height: 28px; padding: 0 20px; margin-bottom: 20px; background-color: color(background, transparent);
+}
+input, textarea, label, select { &._danger { border-color: color(font,danger) !important; } }
+textarea { height: 200px; padding-top: 10px; padding-bottom: 10px; }
+button._btn { @include size(100%,40px); border-radius: 5px; border: $border color(font,p); background-color: color(font,p);
+	color: color(background,base); text-align: center; text-transform: capitalize; @extend ._trs;
+	&:hover { background-color: transparent; color: color(font,p); }
 
-input, textarea, button { @include font-size($_ftZ); }
-button { cursor: pointer; }
-input[type='submit']{ cursor: pointer; max-width: 100px; height: 40px; border: 1px solid $_midnight; background: transparent; color: $_midnight; position: relative; @extend ._trs;
-	&._revers { color:$_b; border-color: $_b; }
-	&:hover { background-color: $_midnight; color: $_b; }
-	&._revers:hover { background-color: $_b; color: $_midnight; }
+	&._revers { background-color: transparent; color: color(font,p); 
+		&:hover { background-color: color(font,p); color: color(background,base); }
+	}
 }
 
 .__btn  { cursor: pointer; display: block; }
 
-.keyline { @include size(60%,1px); background-color: $_midnight; @include opacity(.2); margin: 40px auto; @include clearfix; }
+.keyline { @include size(60%,1px); background-color: #333; @include opacity(.2); margin: 40px auto; @include clearfix; }
 
 // gestion img cover
 .wh { height: 100%; }
