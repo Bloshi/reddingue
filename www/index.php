@@ -1,3 +1,6 @@
+<?php 
+	require 'App/connexion.php';
+?>
 <!doctype html>
 <html>
     <head>
@@ -7,7 +10,11 @@
     </head>
     <body>
         
-        
+        <div class="content-view">
+        	
+			
+
+        </div><!-- .content-view -->
 
         <?php include_once 'parts/footer.php'; ?>
         <script src="assets/js/app.js"></script>

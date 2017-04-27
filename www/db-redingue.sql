@@ -10,8 +10,8 @@
 CREATE TABLE utilisateur(
         utilisateurID      int (11) Auto_increment  NOT NULL ,
         t_nom              Varchar (253) ,
-        t_prenom           int (11) Auto_increment  ,
-        t_adresse_physique int (11) Auto_increment  ,
+        t_prenom           Varchar (255) ,
+        t_adresse_physique Varchar (255) ,
         t_mail             Varchar (255) ,
         i_numero           Int ,
         i_telephone        Int ,
@@ -27,7 +27,7 @@ CREATE TABLE contact(
         contactID          int (11) Auto_increment  NOT NULL ,
         ti_type_de_contact TinyINT ,
         t_objet            Text ,
-        t_societe          int (11) Auto_increment  ,
+        t_societe          Varchar (255) ,
         utilisateurID      Int ,
         PRIMARY KEY (contactID )
 )ENGINE=InnoDB;
