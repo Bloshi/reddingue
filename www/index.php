@@ -9,10 +9,23 @@
         <title>redding</title>
     </head>
     <body>
+        <?php 
+            $page = isset($_GET['page']) ? $_GET['page'] : 'home'
+        ?>
         
         <div class="content-view">
         	
-			
+			<?php
+                switch ($page) {
+                    case 'home':
+                        include 'views/home.php';
+                        break;
+                
+                    default:
+                        include 'views/404.php';
+                        break;
+                }
+            ?>
 
         </div><!-- .content-view -->
 
