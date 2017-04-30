@@ -2,13 +2,13 @@ $colors: (
 	font: (
 		p: #eee,
 		a: #f1f3f9,
-		danger: #d32f2f
+		danger: #d32f2f,
+		selected: #D32F2F
 	),
 	background: (
 		base: #000,
 		transparent: rgba(0,0,0,.6),
-		darkgrey: #212121,
-		selected: #e0e0e0
+		darkgrey: #212121
 	),
 	light: (
 		background: #b0bec5,
@@ -27,6 +27,7 @@ $z-layers: (
 	modal: 4001
 );
 $border: 1px solid;
+$p: #eee;
 
 $_ftZ: 18px;
 
@@ -39,9 +40,7 @@ a { color: color(font,a); text-decoration: underline; @extend ._trs;
 h1 { @include font-size(51.2px); @include line-height(51.2); }
 h2 { @include font-size(32px); @include line-height(32); }
 small { @include font-size(12px); @include line-height(12); }
-input, textarea, select { @include size(100%, 40px); border: $border color(font,p); background-color: transparent; 
-	line-height: 28px; padding: 0 20px; margin-bottom: 20px; background-color: color(background, transparent);
-}
+
 input, textarea, label, select { &._danger { border-color: color(font,danger) !important; } }
 textarea { height: 200px; padding-top: 10px; padding-bottom: 10px; }
 button._btn { @include size(100%,40px); border-radius: 5px; border: $border color(font,p); background-color: color(font,p);
@@ -53,12 +52,14 @@ button._btn { @include size(100%,40px); border-radius: 5px; border: $border colo
 	}
 }
 
-.__btn  { cursor: pointer; display: block; }
-
 .keyline { @include size(60%,1px); background-color: #333; @include opacity(.2); margin: 40px auto; @include clearfix; }
+.wrap { width: 1200px; margin: 0 auto; }
 
-// gestion img cover
-.wh { height: 100%; }
-.ww { width: 100%; }
-._to_center { transform-origin: center center; }
+// extends
 ._trs { transition: all 200ms ease-in-out; }
+.__btn  { cursor: pointer; display: block; }
+._border { border: $border $p; }
+
+
+._champ { @include size(100%, 40px); @extend ._border; margin-bottom: 20px; }
+._textarea { @extend ._champ; height: 100%; }

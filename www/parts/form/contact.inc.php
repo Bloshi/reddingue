@@ -1,33 +1,59 @@
-<form class="contact-form" method="post" action="App/Controllers/Contact.php">
-	
-	<label for="contact-nom">
-		<input type="text" class="contact-nom" name='contact-nom' id='contact-nom' />
-	</label>
+<form action="App/controllers/contact.php" method="post" class="contact-form">
+			
+	<div class="row">
+		<label for="nom" class="s2">
+			<p>Nom</p>
+			<input type="text" class="nom" name='nom' id="nom" />
+		</label>
 
-	<label for="contact-prenom">
-		<input type="text" class="contact-prenom" name='contact-prenom' id='contact-prenom' />
-	</label>
+		<label for="prenom" class="s2">
+			<p>Prenom</p>
+			<input type="text" class="prenom" id="prenom" name='prenom' />
+		</label>
+	</div>
 
-	<label for="contact-societe">
-		<input type="text" class="contact-societe" name='contact-societe' id='contact-societe' />
-	</label>
+	<div class="row">
+		<label for="societe" class="s2">
+			<p>Sociéte</p>
+			<input type="text" class="societe" id="societe" name='societe' />
+		</label>
 
-	<label for="contact-mail">
-		<input type="text" class="contact-mail" name='contact-mail' id='contact-mail' />
-	</label>
+		<label for="adresse" class="s2">
+			<p>Adresse</p>
+			<input type="text" class="adresse" id="adresse" name='adresse' />
+		</label>
+	</div>
 
-	<label for="contact-telephone">
-		<input type="number" class="contact-telephone" name='contact-telephone' id='contact-telephone' />
-	</label>
+	<div class="row">
+		<label for="mail" class="s2">
+			<p>eMail</p>
+			<input type="text" class="mail" id="mail" name='mail' />
+		</label>
 
-	<label for="contact-type">
-		<select name="contact-type" id="contact-type">
-			<option value=""></option>
-		</select>
-	</label>
+		<label for="telephone" class="s2">
+			<p>téléphone</p>
+			<input type="tel" class="telephone" id="telephone" name='telephone' />
+		</label>
+	</div>
 
-	<label for="contact-objet">
-		<textarea name="contact-objet" id="contact-objet"></textarea>
-	</label>
+	<div class="row">
+		<label for="type-contact" class="s1">
+			<p>type de contact</p>
+			<select class="type-contact" id="type-contact" name='type-contact'>
+				<option value="0">client</option>
+				<option value="1">fournisseur</option>
+				<option value="2">partenaire</option>
+			</select>
+		</label>
+	</div>
+
+	<div class="row">
+		<label for="message" class="s1">
+			<p>message</p>
+			<textarea type="text" class="message" id="message" name='message'></textarea>
+		</label>
+	</div>
+
+	<button class="contacter" name='contacter' type="submit">Contacter</button>
 
 </form>

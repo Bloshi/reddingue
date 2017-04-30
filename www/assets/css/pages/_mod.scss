@@ -1,3 +1,28 @@
 body { background: #333; }
 
+.row {
+	@include clearfix; width: 100%;
+	* { float: left; padding-left: 10px; padding-right: 10px; } 
+	.s1 { width: 100%; }
+	.s2 { width:  50%; }
+}
+
+header { 
+	@include size(100%);
+}
+
+nav.main-nav { 
+	@include clearfix; background-color: color(background,darkgrey); height: 60px;
+	li { float: left; padding: 10px;
+		&:first-child { padding-left:  0; }
+		&:last-child  { padding-right: 0; }
+		&._r { float: right !important; }
+		a { color: color(font,a); text-decoration: none; 
+			&.selected { color: color(font, selected); }
+			&::first-letter { text-transform: uppercase; }
+		}
+	}
+}
+
 @import "home";
+@import "contact";
