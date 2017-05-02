@@ -1,7 +1,7 @@
 <main class="page _home">
 	<div class="wrap">
 		
-		home page
+		<p>home page</p>
 
 	</div><!-- .wrap -->
 </main>

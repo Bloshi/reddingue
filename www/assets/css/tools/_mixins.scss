@@ -1,3 +1,5 @@
+@import "media-queries";
+
 /* resolution */
 @mixin background-image-2x($file, $type, $width, $height) {
   @media only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -53,16 +55,6 @@
   font-size: $size;
   font-size: calculateRem($size);
 }
-@mixin bp-large { /* faire @include bp-large */
-  @media only screen and (max-width: 60em) { @content; }
-}
-@mixin bp-medium {
-  @media only screen and (max-width: 40em) { @content; }
-}
-@mixin bp-small {
-  @media only screen and (max-width: 30em) { @content; }
-}
-
 
 @mixin center-block {
   display: block;

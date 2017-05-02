@@ -211,10 +211,15 @@ button._btn {
 .wrap {
   width: 1200px;
   margin: 0 auto; }
+  @media only screen and (max-width: 1200px) {
+    .wrap {
+      width: 100%;
+      padding-left: 10px;
+      padding-right: 10px; } }
 
 ._trs, a, button._btn {
   -webkit-transition: all 200ms ease-in-out;
-          transition: all 200ms ease-in-out; }
+  transition: all 200ms ease-in-out; }
 
 .__btn {
   cursor: pointer;

@@ -1,6 +1,6 @@
 $colors: (
 	font: (
-		p: #eee,
+		p: #eeeeee,
 		a: #f1f3f9,
 		danger: #d32f2f,
 		selected: #D32F2F
@@ -28,6 +28,7 @@ $z-layers: (
 );
 $border: 1px solid;
 $p: #eee;
+$wrap: 1200px;
 
 $_ftZ: 18px;
 
@@ -53,7 +54,9 @@ button._btn { @include size(100%,40px); border-radius: 5px; border: $border colo
 }
 
 .keyline { @include size(60%,1px); background-color: #333; @include opacity(.2); margin: 40px auto; @include clearfix; }
-.wrap { width: 1200px; margin: 0 auto; }
+.wrap { width: $wrap; margin: 0 auto; 
+	@include max-screen($wrap) { width: 100%; padding-left: 10px; padding-right: 10px; }
+}
 
 // extends
 ._trs { transition: all 200ms ease-in-out; }

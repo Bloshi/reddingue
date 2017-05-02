@@ -7,10 +7,13 @@
 	<meta charset="UTF-8">
 	<?php require_once '../parts/meta.php'; ?>
 	<title>Admin</title>
+	<link rel="stylesheet" href="../assets/css/skeleton.css" />
+	<!-- <link rel="stylesheet" href="../assets/css/app.css" /> -->
 </head>
 <body>
 	
 	<?php 
+
 		$logged = isset($_SESSION['log']) ? $_SESSION['log'] : false;
 		if ( $logged === false ) {
 			$page = 'connection';
@@ -19,6 +22,20 @@
 		}
     ?>
     
+    <?php if ( isset($_SESSION['flash']) ): 
+    	  $flash = $_SESSION['flash'];
+    ?>
+    	<div class="flash">
+	    	<ul>
+	    		<?php foreach ($flash as $key => $error): ?>
+	    			<li class="<?= $error['type']; ?>">
+	    				<span><?= $error['message']; ?></span>
+	    			</li>
+	    		<?php endforeach; ?>
+	    	</ul>
+	    </div><!-- .flash -->
+    <?php endif ?>
+
  	<section class="view">
  		
 		<aside class="admin-nav">
@@ -26,7 +43,7 @@
 				<li><a href="index.php?p=actualite" class="admin-link">actualite</a></li>
 				<li><a href="index.php?p=evenement" class="admin-link">evenement</a></li>
 				<li><a href="index.php?p=contact" class="admin-link">contact</a></li>
-				<li><a href="index.php?p=connection" class="admin-link">déconnection</a></li>
+				<li><a href="views/logout.admin.php" class="admin-link">déconnection</a></li>
 			</ul>
 		</aside>
 
