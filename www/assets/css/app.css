@@ -133,7 +133,7 @@ body, p, input, button, select, textarea {
   line-height: 20px;
   line-height: 2.5rem;
   font-family: 'lato', 'helvetica', 'arial', 'sans-serif';
-  color: color(font, p); }
+  color: #eeeeee; }
 
 article p, form {
   max-width: 600px;
@@ -141,7 +141,7 @@ article p, form {
   margin: 20px auto; }
 
 a {
-  color: color(font, a);
+  color: #f1f3f9;
   text-decoration: underline; }
   a:hover {
     text-decoration: none; }
@@ -165,7 +165,7 @@ small {
   line-height: 1.5rem; }
 
 input._danger, textarea._danger, label._danger, select._danger {
-  border-color: color(font, danger) !important; }
+  border-color: #d32f2f !important; }
 
 textarea {
   height: 200px;
@@ -176,20 +176,20 @@ button._btn {
   width: 100%;
   height: 40px;
   border-radius: 5px;
-  border: 1px solid color(font, p);
-  background-color: color(font, p);
-  color: color(background, base);
+  border: 1px solid #eeeeee;
+  background-color: #eeeeee;
+  color: #000;
   text-align: center;
   text-transform: capitalize; }
   button._btn:hover {
     background-color: transparent;
-    color: color(font, p); }
+    color: #eeeeee; }
   button._btn._revers {
     background-color: transparent;
-    color: color(font, p); }
+    color: #eeeeee; }
     button._btn._revers:hover {
-      background-color: color(font, p);
-      color: color(background, base); }
+      background-color: #eeeeee;
+      color: #000; }
 
 .keyline {
   width: 60%;
@@ -219,7 +219,7 @@ button._btn {
 
 ._trs, a, button._btn {
   -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out; }
+          transition: all 200ms ease-in-out; }
 
 .__btn {
   cursor: pointer;
@@ -291,5 +291,4 @@ nav.main-nav {
         color: #D32F2F; }
       nav.main-nav li a::first-letter {
         text-transform: uppercase; }
-
 /*# sourceMappingURL=app.css.map */

@@ -26,6 +26,9 @@ $z-layers: (
 	overlay: 4000,
 	modal: 4001
 );
+
+@import "tools/function";
+
 $border: 1px solid;
 $p: #eee;
 $wrap: 1200px;

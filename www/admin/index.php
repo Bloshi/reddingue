@@ -34,7 +34,7 @@
 	    		<?php endforeach; ?>
 	    	</ul>
 	    </div><!-- .flash -->
-    <?php endif ?>
+    <?php endif; ?>
 
  	<section class="view">
  		

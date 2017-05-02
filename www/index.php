@@ -13,6 +13,20 @@
     <body>
         <?php 
             $page = isset($_GET['p']) ? $_GET['p'] : 'home';
+
+            if ( isset($_SESSION['flash']) ): 
+                $flash = $_SESSION['flash'];
+                ?>
+                <div class="flash">
+                    <ul>
+                        <?php foreach ($flash as $key => $error): ?>
+                            <li class="<?= $error['type']; ?>">
+                                <span><?= $error['message']; ?></span>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div><!-- .flash -->
+            <?php endif;
         
             // include 'parts/header.php';
         ?>
