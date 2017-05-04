@@ -33,34 +33,33 @@
 				}
 			}
 
-			// test mail  
-			if ( isset($_POST['mail']) ) {
-				if ( !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL) ) {
-					$_SESSION['flash'][] = [
-						'type' => 'error',
-						'message' => 'Votre eMail est incorrecte.'
-					];
-				}
-			}
-
 			if ( $fails > 0 ) {
 				$_SESSION['flash'][] = [
 					'type' => 'error',
 					'message' => 'Les champs avec astérisque sont obligatoir.'
 				];
 			} else {
-				$headers = "RedDingue [".$_POST['type-contact']."] - Demande de contact - de ".$_POST['mail']." le ".$date;
-				$message = "Mmme/Mr ".$_POST['prenom']." ".$_POST['nom']." [".$_POST['type-contact']."] souhaite vous contacter\n";
-				$message .= "Message : ".$_POST['message']."\n";
-				$message .= "Numéro : ".$_POST['telephone']." - société : ".$_POST['message']."\n";
-				$message .= "Mail : ".$_POST['mail']."\n";
-				$message .= "Adresse physique : ".$_POST['adresse'];
-				mail($to, $headers, $message);
+				if ( isset($_POST['mail']) ) {
+					if ( filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL) ) {
+						$headers = "RedDingue [".$_POST['type-contact']."] - Demande de contact - de ".$_POST['mail']." le ".$date;
+						$message = "Mmme/Mr ".$_POST['prenom']." ".$_POST['nom']." [".$_POST['type-contact']."] souhaite vous contacter\n";
+						$message .= "Message : ".$_POST['message']."\n";
+						$message .= "Numéro : ".$_POST['telephone']." - société : ".$_POST['message']."\n";
+						$message .= "Mail : ".$_POST['mail']."\n";
+						$message .= "Adresse physique : ".$_POST['adresse'];
+						mail($to, $headers, $message);
 
-				$_SESSION['flash'][] = [
-					'type' => 'successe',
-					'message' => 'Le mail à bien été envoyé nous vous répondrons dans les plus bref délais.'
-				];
+						$_SESSION['flash'][] = [
+							'type' => 'successe',
+							'message' => 'Le mail à bien été envoyé nous vous répondrons dans les plus bref délais.'
+						];
+					} else {
+						$_SESSION['flash'][] = [
+							'type' => 'error',
+							'message' => 'Votre eMail est incorrecte.'
+						];
+					}
+				}
 			}
 
 			header('location:'. $dirToIndex .'?p=contact');

@@ -7,8 +7,9 @@
 	<meta charset="UTF-8">
 	<?php require_once '../parts/meta.php'; ?>
 	<title>Admin</title>
+	<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="../assets/css/skeleton.css" />
-	<!-- <link rel="stylesheet" href="../assets/css/app.css" /> -->
+	<link rel="stylesheet" href="../assets/css/app.css" />
 </head>
 <body>
 	
@@ -36,18 +37,34 @@
 	    </div><!-- .flash -->
     <?php endif; ?>
 
- 	<section class="view">
+ 	<section class="admin-container">
  		
 		<aside class="admin-nav">
 			<ul>
-				<li><a href="index.php?p=actualite" class="admin-link">actualite</a></li>
-				<li><a href="index.php?p=evenement" class="admin-link">evenement</a></li>
-				<li><a href="index.php?p=contact" class="admin-link">contact</a></li>
-				<li><a href="views/logout.admin.php" class="admin-link">déconnection</a></li>
+				<li>
+					<a 
+						class="admin-link _btn<?= $page == 'actualite' ? ' active' : '' ?>"
+						href="index.php?p=actualite">actualite<i class="fa fa-chevron-right fa-1"></i>
+					</a>
+				</li>
+				<li>
+					<a 
+						class="admin-link _btn<?= $page == 'evenement' ? ' active' : '' ?>"
+						href="index.php?p=evenement">evenement<i class="fa fa-chevron-right fa-1"></i>
+					</a>
+				</li>
+				<li>
+					<a 
+						class="admin-link _btn<?= $page == 'contact' ? ' active' : '' ?>"
+						href="index.php?p=contact">contact<i class="fa fa-chevron-right fa-1"></i>
+					</a>
+				</li>
+				<li>
+					<a href="views/logout.admin.php" class="admin-link _btn">déconnection<i class="fa fa-chevron-right fa-1"></i></a></li>
 			</ul>
 		</aside>
 
-		<main class="admin-content">
+		<main class="admin-view">
 			<?php
 	            switch ($page) {
 	                case 'actualite':
@@ -66,6 +83,10 @@
 	                    include 'views/login.admin.php';
 	                    break;
 	            }
+
+	            unset($_SESSION['flash']);
+                unset($_SESSION['miss']);
+                unset($_SESSION['old']);
 	        ?>
 		</main>
 

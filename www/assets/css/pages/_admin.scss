@@ -1,0 +1,19 @@
+section.admin-container { @include size(100%); padding: 80px 0;
+	aside.admin-nav { @include size(300px,100%); float: left; 
+		ul { height: 100%; 
+			li { padding: 10px 20px; }
+		}
+	}
+	main.admin-view { @include size(calc(100% - 300px), 100%); float: right; 
+		form { margin-left: 0; }
+	}
+}
+
+nav.filter-admin { @include size(100%,60px); 
+	ul { @include size(100%);
+		li { float: left; 
+			a { color: color(font,p); margin: auto; }
+		}
+	}
+
+}

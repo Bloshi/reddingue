@@ -4,8 +4,8 @@
 		<label for="mdpAdmin">
 			<p>connection</p>
 			<legend>vous vous trouvez dans la partie administrateur du site <a href="../index.php">DedDing</a>.</legend>
-			<input type="text" class="mdpAdmin" id="mdpAdmin" name="mdpAdmin" />
 		</label>
+		<input type="text" class="u-full-width mdpAdmin" id="mdpAdmin" name="mdpAdmin" />
 
 		<button class="login" type="submit" name="login">Se connecter</button>
 	</form>

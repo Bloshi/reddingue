@@ -15,6 +15,9 @@ CREATE TABLE utilisateur(
         t_mail             Varchar (255) ,
         i_numero           Int ,
         i_telephone        Int ,
+        contactID          Int ,
+        evenementID        Int ,
+        remarqueID         Int ,
         PRIMARY KEY (utilisateurID )
 )ENGINE=InnoDB;
 
@@ -40,6 +43,7 @@ CREATE TABLE contact(
 CREATE TABLE formule(
         formuleID     int (11) Auto_increment  NOT NULL ,
         t_nom_formule Varchar (255) ,
+        evenementID   Int ,
         PRIMARY KEY (formuleID )
 )ENGINE=InnoDB;
 
@@ -62,39 +66,32 @@ CREATE TABLE remarque(
 #------------------------------------------------------------
 
 CREATE TABLE evenement(
-        evenementID     int (11) Auto_increment  NOT NULL ,
-        t_nom_evenement Varchar (255) ,
-        remarqueID      Int ,
+        evenementID       int (11) Auto_increment  NOT NULL ,
+        t_titre_evenement Varchar (255) ,
+        t_description     Longtext ,
+        d_date            Datetime ,
+        t_lieu            Varchar (255) ,
+        ti_prive          TinyINT ,
         PRIMARY KEY (evenementID )
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: inscrire
+# Table: image
 #------------------------------------------------------------
 
-CREATE TABLE inscrire(
-        utilisateurID Int NOT NULL ,
-        evenementID   Int NOT NULL ,
-        PRIMARY KEY (utilisateurID ,evenementID )
+CREATE TABLE image(
+        imageEventID int (11) Auto_increment  NOT NULL ,
+        t_url_image  Varchar (255) ,
+        evenementID  Int ,
+        PRIMARY KEY (imageEventID )
 )ENGINE=InnoDB;
 
-
-#------------------------------------------------------------
-# Table: choisir-formule
-#------------------------------------------------------------
-
-CREATE TABLE choisir_formule(
-        evenementID Int NOT NULL ,
-        formuleID   Int NOT NULL ,
-        PRIMARY KEY (evenementID ,formuleID )
-)ENGINE=InnoDB;
-
+ALTER TABLE utilisateur ADD CONSTRAINT FK_utilisateur_contactID FOREIGN KEY (contactID) REFERENCES contact(contactID);
+ALTER TABLE utilisateur ADD CONSTRAINT FK_utilisateur_evenementID FOREIGN KEY (evenementID) REFERENCES evenement(evenementID);
+ALTER TABLE utilisateur ADD CONSTRAINT FK_utilisateur_remarqueID FOREIGN KEY (remarqueID) REFERENCES remarque(remarqueID);
 ALTER TABLE contact ADD CONSTRAINT FK_contact_utilisateurID FOREIGN KEY (utilisateurID) REFERENCES utilisateur(utilisateurID);
+ALTER TABLE formule ADD CONSTRAINT FK_formule_evenementID FOREIGN KEY (evenementID) REFERENCES evenement(evenementID);
 ALTER TABLE remarque ADD CONSTRAINT FK_remarque_evenementID FOREIGN KEY (evenementID) REFERENCES evenement(evenementID);
 ALTER TABLE remarque ADD CONSTRAINT FK_remarque_utilisateurID FOREIGN KEY (utilisateurID) REFERENCES utilisateur(utilisateurID);
-ALTER TABLE evenement ADD CONSTRAINT FK_evenement_remarqueID FOREIGN KEY (remarqueID) REFERENCES remarque(remarqueID);
-ALTER TABLE inscrire ADD CONSTRAINT FK_inscrire_utilisateurID FOREIGN KEY (utilisateurID) REFERENCES utilisateur(utilisateurID);
-ALTER TABLE inscrire ADD CONSTRAINT FK_inscrire_evenementID FOREIGN KEY (evenementID) REFERENCES evenement(evenementID);
-ALTER TABLE choisir_formule ADD CONSTRAINT FK_choisir_formule_evenementID FOREIGN KEY (evenementID) REFERENCES evenement(evenementID);
-ALTER TABLE choisir_formule ADD CONSTRAINT FK_choisir_formule_formuleID FOREIGN KEY (formuleID) REFERENCES formule(formuleID);
+ALTER TABLE image ADD CONSTRAINT FK_image_evenementID FOREIGN KEY (evenementID) REFERENCES evenement(evenementID);

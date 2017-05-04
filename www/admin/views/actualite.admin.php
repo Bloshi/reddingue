@@ -3,16 +3,29 @@
 	<h2>Actualité</h2>
 	<span>ici gérez les actualité du site</span>
 
+	<?php
+		$filter = isset($_GET['f']) ? $_GET['f'] : 'ajouter';
+	?>
+
 	<nav class="filter-admin">
-		<ul>
-			<li>
-				<a href="index.php?p=actualite&f=ajouter" class="filter-event-admin">Ajouter</a>
+		<ul class="row">
+			<li class="one-third column">
+				<a 
+					href="index.php?p=actualite&f=ajouter" 
+					class="button filter-event-admin<?= $filter == 'ajouter' ? ' active' : '' ?>"
+				>Ajouter</a>
 			</li>
-			<li>
-				<a href="index.php?p=actualite&f=modifier" class="filter-event-admin">Mofidier</a>
+			<li class="one-third column">
+				<a 
+					href="index.php?p=actualite&f=modifier" 
+					class="button filter-event-admin<?= $filter == 'modifier' ? ' active' : '' ?>"
+				>Mofidier</a>
 			</li>
-			<li>
-				<a href="index.php?p=actualite&f=supprimer" class="filter-event-admin">Supprimer</a>
+			<li class="one-third column">
+				<a 
+					href="index.php?p=actualite&f=supprimer" 
+					class="button filter-event-admin<?= $filter == 'supprimer' ? ' active' : '' ?>"
+				>Supprimer</a>
 			</li>
 		</ul>
 	</nav>
@@ -20,8 +33,6 @@
 	<div class="view-filter-admin">
 		
 		<?php 
-			$filter = isset($_GET['f']) ? $_GET['f'] : 'ajouter';
-
 			switch ( $filter ) {
 				case 'modifier':
 					include 'evenement/modifier.php';

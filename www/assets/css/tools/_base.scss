@@ -2,13 +2,18 @@ $colors: (
 	font: (
 		p: #eeeeee,
 		a: #f1f3f9,
-		danger: #d32f2f,
-		selected: #D32F2F
+		error: #d32f2f,
+		success: #43a047,
+		selected: #D32F2F, 
+		form: #212121
 	),
 	background: (
 		base: #000,
 		transparent: rgba(0,0,0,.6),
-		darkgrey: #212121
+		darkgrey: #212121, 
+		error: #d32f2f,
+		success: #43a047,
+		clear: #eeeeee
 	),
 	light: (
 		background: #b0bec5,
@@ -30,7 +35,6 @@ $z-layers: (
 @import "tools/function";
 
 $border: 1px solid;
-$p: #eee;
 $wrap: 1200px;
 
 $_ftZ: 18px;
@@ -38,8 +42,14 @@ $_ftZ: 18px;
 html, body { height: 100%; }
 body, p, input, button, select, textarea { @include font-size(20px); @include line-height(20); font-family: 'lato', 'helvetica', 'arial', 'sans-serif'; color: color(font,p); }
 article p, form { @include para-max(20); margin: 20px auto; }
-a { color: color(font,a); text-decoration: underline; @extend ._trs; 
-	&:hover { text-decoration: none; }
+article, p, legend { a { display: inline; } }
+a { color: color(font,a); @extend ._trs; display: block;
+	&._btn { @include size(100%); @include line-height(20); position: relative;
+		i { display: block; @include size(20px); color: color(font,a); @include pos(absolute,0,0,0,auto); 
+			margin: auto; transform: translateX(-10px); @extend ._trs; @include opacity(0);
+		}
+		&:hover, &.active { i { transform: translateX(0); @include opacity(1); } }
+	}
 }
 h1 { @include font-size(51.2px); @include line-height(51.2); }
 h2 { @include font-size(32px); @include line-height(32); }
@@ -56,6 +66,8 @@ button._btn { @include size(100%,40px); border-radius: 5px; border: $border colo
 	}
 }
 
+form input { input, select, textarea { color: color(font, form) !important; } }
+
 .keyline { @include size(60%,1px); background-color: #333; @include opacity(.2); margin: 40px auto; @include clearfix; }
 .wrap { width: $wrap; margin: 0 auto; 
 	@include max-screen($wrap) { width: 100%; padding-left: 10px; padding-right: 10px; }
@@ -64,8 +76,7 @@ button._btn { @include size(100%,40px); border-radius: 5px; border: $border colo
 // extends
 ._trs { transition: all 200ms ease-in-out; }
 .__btn  { cursor: pointer; display: block; }
-._border { border: $border $p; }
-
-
+._border { border: $border color(font,p); }
+ 
 ._champ { @include size(100%, 40px); @extend ._border; margin-bottom: 20px; }
 ._textarea { @extend ._champ; height: 100%; }

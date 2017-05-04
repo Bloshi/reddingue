@@ -1,4 +1,4 @@
-<form action="App/controllers/contact.php" method="post" class="contact-form">
+<form action="App/controllers/inscription-evenement.php" method="post" class="inscription-evenement.php-form">
 	<div class="row">
 		<div class="six columns">
 			<label for="nom"><p>Nom</p></label>
@@ -57,11 +57,9 @@
 		</div><!-- .six.columns -->
 	</div>
 
-	<label for="type-contact"><p>type de contact</p></label>
+	<label for="type-formule"><p>type de contact</p></label>
 	<select class="type-contact u-full-width" id="type-contact" name='type-contact'>
 		<option value="0">client</option>
-		<option value="1">fournisseur</option>
-		<option value="2">partenaire</option>
 	</select>
 
 	<label for="message"><p>message</p></label>
@@ -71,6 +69,6 @@
 	><?php if ( isset($_SESSION['old']['message']) ){ echo $_SESSION['old']['message']; }?></textarea>
 		
 
-	<button class="contacter" name='contacter' type="submit">Contacter</button>
+	<button class="inscription-event" name='inscription-event' type="submit">Contacter</button>
 
 </form> 

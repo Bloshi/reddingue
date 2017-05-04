@@ -7,6 +7,7 @@
         <meta charset="utf-8">
         <?php require_once 'parts/meta.php'; ?>
         <title>redding</title>
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
         <link rel="stylesheet" href="assets/css/skeleton.css" />
         <link rel="stylesheet" href="assets/css/app.css" />
     </head>
@@ -57,6 +58,10 @@
                         include 'views/404.php';
                         break;
                 }
+
+                unset($_SESSION['flash']);
+                unset($_SESSION['miss']);
+                unset($_SESSION['old']);
             ?>
 
         </div><!-- .content-view -->

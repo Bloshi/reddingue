@@ -1,14 +1,28 @@
 body { background: #333; }
 
-.row {
-	@include clearfix; width: 100%;
-	* { float: left; padding-left: 10px; padding-right: 10px; } 
-	.s1 { width: 100%; }
-	.s2 { width:  50%; }
+form .row {
+	.columns { padding-left:  0 !important; padding-right: 0 !important; }
+}
+
+*.button { color: color(font,p); 
+	&:hover, &.active { background: color(background, clear); color: color(font, form); }
 }
 
 header { 
 	@include size(100%);
+}
+
+.flash { @include size(100%,auto); @include pos(fixed,0,0,auto); 
+	ul { @include size(100%);
+		li { text-align: center; @include line-height(20); color: color(font,p); display: block;
+			&.error   { background-color: color(background, error); }
+			&.success { background-color: color(background, success); }
+		}
+	}
+}
+input {
+	&.error   { border-color: color(background, error); }
+	&.success { border-color: color(background, success); }
 }
 
 nav.main-nav { 
@@ -26,3 +40,4 @@ nav.main-nav {
 
 @import "home";
 @import "contact";
+@import "admin";
