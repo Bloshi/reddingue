@@ -9,23 +9,17 @@
 
 	<nav class="filter-admin">
 		<ul class="row">
-			<li class="one-third column">
-				<a 
+			<li class="one-half column">
+				<center><a 
 					href="index.php?p=actualite&f=ajouter" 
 					class="button filter-event-admin<?= $filter == 'ajouter' ? ' active' : '' ?>"
-				>Ajouter</a>
+				>Ajouter</a></center>
 			</li>
-			<li class="one-third column">
-				<a 
-					href="index.php?p=actualite&f=modifier" 
-					class="button filter-event-admin<?= $filter == 'modifier' ? ' active' : '' ?>"
-				>Mofidier</a>
-			</li>
-			<li class="one-third column">
-				<a 
-					href="index.php?p=actualite&f=supprimer" 
-					class="button filter-event-admin<?= $filter == 'supprimer' ? ' active' : '' ?>"
-				>Supprimer</a>
+			<li class="one-half column">
+				<center><a 
+					href="index.php?p=actualite&f=liste" 
+					class="button filter-event-admin<?= $filter == 'liste' ? ' active' : '' ?>"
+				>Liste actualité</a></center>
 			</li>
 		</ul>
 	</nav>
@@ -35,15 +29,15 @@
 		<?php 
 			switch ( $filter ) {
 				case 'modifier':
-					include 'evenement/modifier.php';
+					include 'actualite/fiche.actu.php';
 					break;
 
-				case 'supprimer':
-					include 'evenement/supprimer.php';
+				case 'liste':
+					include 'actualite/list.actu.php';
 					break;
 				
 				default:
-					include 'evenement/ajouter.php';
+					include 'actualite/add.actu.php';
 					break;
 			} 
 		?>
