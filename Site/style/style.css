@@ -1,8 +1,5 @@
 body{
 	background: url(../img/texture_3.jpg) center center;
-
-
-
 }
 header{
 	height: 780px;
@@ -10,12 +7,10 @@ header{
 	margin: 0 auto;
 }
 .fond{
-
 	background: url(../img/equipe2.jpg) center center;
 	background-size: cover;
 	height: 780px;
     width: 100%;
-
 }
 .logo {
 	background: url(../img/logo3.png) no-repeat center center;
@@ -27,7 +22,6 @@ header{
 	text-indent: -9999px;
 	top: 70px;
 	left: 25px;
-
 }
 h1 {
 	text-align: center;
@@ -40,21 +34,16 @@ h2{
 	color: white;
 	font: 60px;
 	position: relative;
-
 }
 p {
 	text-align: center;
 	color: white;
 }
-
 .container{
-
 	width: 80%;
 	margin: 0 auto;
 	overflow: hidden;
 }
-
-
 .menu{
 	position: relative;
 	display: block;
@@ -63,7 +52,6 @@ p {
 	background-color: white;
 	top: 230px;
 	overflow: hidden;
-
 }
 ul{
 	width: 610px;
@@ -76,11 +64,7 @@ ul li{
 	float: left;
 	margin: 0 auto;
 	width: 120px;
-
 }
-
-
-
 nav ul li a {
   	display: block;
   	text-decoration: none;
@@ -93,13 +77,11 @@ nav ul li a {
 nav ul li a:hover {
 	background-color: #323433;
    	color: white;
-
    	      -webkit-transition: all ease .3s;
           -moz-transition: all ease .3s;
           -ms-transition: all ease .3s;
           transition: all ease .3s;
 }
-
 .servi_first{
 	background-color: yellow;
 }
@@ -114,35 +96,27 @@ nav ul li a:hover {
 #col_serv{
   height: 400px;
 }
-
 #col_serv ul{
-
   height: 100px;
   width: 100%;
   margin: 0 auto;
   padding: 0;
   text-decoration: none;
   list-style: none;
-
   color: #F3EBDE;
 }
-
 #col_serv ul li{
-
   float: left;
   position:relative;
   width: 33.33%;
   height: 400px;
 display: block;
 }
-
-
 .services p{
   width: 70%;
   padding-top: 30px;
   margin: 0 auto;
   font-family: 'thin';
-
   color: #F3EBDE;
 }
 .services h3,h4{
@@ -156,12 +130,9 @@ h3{
 h4{
   font-size: 23px;
 }
-
-
 #services{
 	height: 1000px;
 }
-
 .col_serv_hover{
  background: #1F2527;
  height: 100%;
@@ -174,8 +145,6 @@ h4{
 .services:first-child{
 	  background: url(../img/event.svg) center center no-repeat;
 	  background-size: cover;
-
-
 	}
 	.services:nth-child(2){
 		background: url(../img/traiteur.svg) center center no-repeat;
@@ -188,8 +157,7 @@ h4{
 		}
 .col2:nth-child(1){
 	background: url(../img/traiteur.svg) center center no-repeat;
-		background-size: cover;
-
+	background-size: cover;
 	}
 	.col2:nth-child(2){
 		background: url(../img/traiteur.svg) center center no-repeat;
@@ -197,10 +165,8 @@ h4{
 	}
 		.col2:nth-child(3){
 			background: url(../img/traiteur.svg) center center no-repeat;
-		background-size: cover;
-		 	
+		background-size: cover;		 	
 		}
-
 .services_hover{
  background: #1F2527;
  height: 100%;
@@ -229,3 +195,34 @@ h4{
           -ms-transition: opacity ease .4s;
           transition: opacity ease .4s;
 }
+.btn_projets{
+             color: #F3EBDE;
+                text-align: center;
+                  font-size: 18px;
+                    font-family: 'thin';
+                        padding: 10px 15px 10px 15px;
+                          border: solid #F3EBDE 1px;
+                            text-decoration: none;
+                              cursor: pointer;
+                                display: block;
+                                  width: 180px;
+                                    margin: 0 auto;
+                                      text-indent: 0px;
+                                        margin-top: 20px;
+                                          opacity: 1;
+                                          -webkit-transition: all ease .2s;
+                                          -moz-transition: all ease .2s;
+                                          -ms-transition: all ease .2s;
+                                          transition: all ease .2s;
+}
+.btn_projets:hover{
+             color: #323433;
+               background: #F3EBDE;
+                  border: solid #323433 1px;
+                  
+                  -webkit-transition: opacity ease .4s;
+                  -moz-transition: opacity ease .4s;
+                  -ms-transition: opacity ease .4s;
+                  transition: opacity ease .4s;          
+}
+
