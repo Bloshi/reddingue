@@ -39,7 +39,7 @@ Route::group(['prefix' => 'administration'], function() {
 	//
 
 	// event
-		Route::get('/gestion/evenement/base/de/donnee', 'Admin\GestionEventController@eventList')->name('admin.gestion.event.list');
+		Route::get('/gestion/evenement/base/de/donnee/{id?}', 'Admin\GestionEventController@eventList')->name('admin.gestion.event.list');
 		
 		Route::get('/gestion/evenement/generer/un/evenement', 'Admin\GestionEventController@eventAdd')->name('admin.gestion.event.add');
 		Route::post('/gestion/evenement/generer/un/evenement', 'Admin\GestionEventController@postEventAdd')->name('admin.adding.newevent');

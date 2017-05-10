@@ -70,17 +70,17 @@
 				</div>
 
 				<div class="columns coll-12">
-					<label for="ti_prive">Est-ce un événement privé ?</label>
-					{!! Form::radio('ti_prive', '0', true); !!}
-					{!! Form::radio('ti_prive', '1', true); !!}
+					<p>Est-ce un événement privé ?</p>
+					<label for="ti_prive_non">non{!! Form::radio('ti_prive', '0', true, ['id' => 'ti_prive_non']); !!}</label>
+					<label for="ti_prive_oui">oui{!! Form::radio('ti_prive', '1', false, ['id' => 'ti_prive_oui']); !!}</label>
 				</div>
 				
 				<div class="columns coll-12">
 					<p>Champ visible pour l'inscription</p>
-					<label for="champ1"><input type="checkbox" name="champs" id="champ1" /> Le nom du truc</label>
-					<label for="champ2"><input type="checkbox" name="champs" id="champ2" /> Le nom du truc</label>
-					<label for="champ3"><input type="checkbox" name="champs" id="champ3" /> Le nom du truc</label>
-					<label for="champ4"><input type="checkbox" name="champs" id="champ4" /> Le nom du truc</label>
+					<label for="champ1"><input type="checkbox" name="champs" id="champ1" checked /> Le nom du truc</label>
+					<label for="champ2"><input type="checkbox" name="champs" id="champ2" checked /> Le nom du truc</label>
+					<label for="champ3"><input type="checkbox" name="champs" id="champ3" checked /> Le nom du truc</label>
+					<label for="champ4"><input type="checkbox" name="champs" id="champ4" checked /> Le nom du truc</label>
 				</div>
 
 			</div><!-- .row -->

@@ -12,23 +12,33 @@
 	{
 		public $adminPage = 'event';
  
-		public function eventList(Request $request)
+		public function eventList(Request $request, $id = null)
 	    {
 	    	if ( session('adminLogged') === true ) {
 
-	    		var_dump($request->all());
-	    		$results = [];
+	    		if ( $id == null ) {
+	    			$results = DB::table('inscriptionEvent')->select('utilisateur.t_nom', 'utilisateur.t_prenom', 'utilisateur.t_mail', 'utilisateur.i_numero')
+	    										   ->join('evenement', 'inscriptionEvent.evenementID', '=', 'evenement.evenementID')
+	    										   ->join('utilisateur', 'inscriptionEvent.utilisateurID', '=', 'utilisateur.utilisateurID')
+												   ->orderBy('evenement.evenementID', 'desc')
+												   ->get();
+					$selectOption = 'null';
+	    		} else {
+	    			$results = DB::table('inscriptionEvent')->select('utilisateur.t_nom', 'utilisateur.t_prenom', 'utilisateur.t_mail', 'utilisateur.i_numero')
+	    										   ->join('evenement', 'inscriptionEvent.evenementID', '=', 'evenement.evenementID')
+	    										   ->join('utilisateur', 'inscriptionEvent.utilisateurID', '=', 'utilisateur.utilisateurID')
+	    										   ->where('evenement.evenementID', $id)
+												   ->orderBy('evenement.evenementID', 'desc')
+												   ->get();
+					$selectOption = $id;
+	    		}
 
-	    		// if ( $id != 'all' ) {
-	    		// 	$results = DB::table('utilisateur')->select('t_nom', 't_prenom', 't_mail', 'i_numero')->get();
-	    		// } else {
-	    		// 	$results = Evenement::all();	
-	    		// }
 	    		$filterEvent = Evenement::select('evenementID', 't_titre_evenement')->get();
 
 	    		$data = [
 		    		'title' => 'Base de donnée ',
 		    		'page' => $this->adminPage, 
+		    		'selectOption' => $selectOption,
 
 		    		'results' => $results, 
 		    		'filterEvent' => $filterEvent
@@ -54,9 +64,13 @@
 
 	    public function postEventAdd(Request $request)
 	    {
-	    	dd($request->all());
-
-	    	Evenement::create($request->all());
+	    	Evenement::insert([
+	    		't_titre_evenement' => $request->all()['t_titre_evenement'],
+				'd_date' => $request->all()['d_date'],
+				't_lieu' => $request->all()['t_lieu'],
+				't_description' => $request->all()['t_description'],
+				'ti_prive' => $request->all()['ti_prive']
+	    	]);
 	    	return redirect()->route('admin.gestion.event.add');
 	    }
 	} 

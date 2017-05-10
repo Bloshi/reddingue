@@ -10,6 +10,8 @@
 
         <title>{{ $title }} | RedDingue</title>
         
+        <script src='{{ asset('js/jquery-3.2.1.min.js') }}'></script>
+        
         <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     </head>
     <body>

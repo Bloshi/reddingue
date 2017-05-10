@@ -10,44 +10,44 @@
 
 		<div class="row">
 			
-			{!! Form::open(['action' => 'Admin\GestionEventController@eventList']) !!}
-				<div class="columns coll-8 u-pull-left">
-					<label for="list-inscrit-event">Choisissez votre événement</label>
-					<select name="list-inscrit-event" id="list-inscrit-event">
-						<option value="all">tous</option>
-						@if(isset($filterEvent))
-							@foreach($filterEvent as $Event)
-								<option value="{{ $Event->evenementID }}">{{ $Event->t_titre_evenement }}</option>
-							@endforeach
-						@endif
-					</select>
-				</div>
-
-				<div class="columns coll-4 u-pull-right">
-					<button type="submit" name="filter-event-database">Filtrer</button>
-				</div>
-			{!! Form::close() !!}
+			<div class="columns coll-12">
+				<label for="list-inscrit-event">Choisissez votre événement</label>
+				<select name="list-inscrit-event" id="list-inscrit-event" onchange="document.location.href=this.value">
+					<option 
+						value="{{ route('admin.gestion.event.list') }}"
+						{{ $selectOption == 'null' ? 'selected' : '' }}
+					>tous</option>
+					@if(isset($filterEvent))
+						@foreach($filterEvent as $Event)
+							<option 
+								value="{{ route('admin.gestion.event.list', ['id' => $Event->evenementID]) }}"
+								{{ $selectOption == $Event->evenementID ? 'selected' : '' }}
+							>{{ $Event->t_titre_evenement }}</option>
+						@endforeach
+					@endif
+				</select>
+			</div>
 
 		</div><!-- .row -->
 
-		{{ dd($results) }}
-
 		<table>
 			<thead> 
-				<tr>
-					<td>Nom</td>
-					<td>Prénomom</td>
-					<td>Gsm</td>
-					<td>eMail</td>
+				<tr class="row">
+					<td class="columns coll-3">Nom</td>
+					<td class="columns coll-3">Prénomom</td>
+					<td class="columns coll-3">Gsm</td>
+					<td class="columns coll-3">eMail</td>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Nom</td>
-					<td>Prénomom</td>
-					<td>Gsm</td>
-					<td>eMail</td>
-				</tr>
+				@foreach($results as $user)
+					<tr class="row">
+						<td class="columns coll-3">{{ ucfirst($user->t_nom) }}</td>
+						<td class="columns coll-3">{{ ucfirst($user->t_prenom) }}</td>
+						<td class="columns coll-3">{{ $user->i_numero }}</td>
+						<td class="columns coll-3"><a href="mailto:{{ $user->t_mail }}">{{ $user->t_mail }}</a></td>
+					</tr>
+				@endforeach 
 			</tbody>
 		</table>
 
