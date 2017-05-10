@@ -1,0 +1,124 @@
+body{ background: url(../img/texture_3.jpg) center center; }
+
+header{ height: 780px; width: 100%; margin: 0 auto; 
+  .fond { background: url(../img/equipe2.jpg) center center; background-size: cover;
+    @include size(100%, 780px);
+
+    .logo {@include size(500px); @include pos(relative, 70px, auto, auto, 25px);
+      background: url(../img/logo3.png) no-repeat center center;
+      background-size: cover; margin: 0 auto; text-indent: -9999px;
+    }
+    nav.menu { position: relative;  display: block; @include size(100%, 50px);
+      background-color: color(background, white); top: 230px; overflow: hidden;
+      
+      ul{ @include size(610px, 50px); margin: 0 auto; text-align: center;
+        li { display: block; float: left; margin: 0 auto; width: 120px;
+          a { display: block; text-decoration: none; position: relative; line-height: 52px;
+            color: color(font, noir); @include size(100px, 100%);
+
+            &:hover { background-color: color(font, noir); color: color(font, p); transition: all ease .3s; }
+          }
+        }
+      }
+    }
+  } 
+}
+
+
+h1 { text-align: center; color: color(font, p); position: relative;
+  @include font-size(60px);
+}
+h2{ @include font-size(60px); color: color(font,p); text-align: center;
+  position: relative;
+}
+h3{ @include font-size(50px); padding-top: 30px; }
+h4{ @include font-size(23px); }
+p { text-align: center; color: color(font,p); }
+
+.container{ width: 80%; margin: 0 auto; overflow: hidden; }
+
+.servi_first{
+  background-color: yellow;
+}
+.servi{
+  text-align: center;  position: relative;
+  @include size(33.3333%, 250px);
+  background-color: blue; float: left;
+}
+#col_serv{ height: 400px;
+  ul { @include size(100%, 100px);
+    margin: 0 auto; padding: 0;
+    text-decoration: none; list-style: none; color: color(font, clear);
+
+    li{ float: left; position:relative;
+      display: block; @include size(33.3333%, 400px);
+    }
+  }
+}
+
+.services {
+  p { width: 70%; padding-top: 30px; margin: 0 auto;
+    font-family: 'thin';color: color(font, clear);
+  }
+  h3,h4{ text-align: center; margin: 0 auto; }
+
+  &:first-child{
+    background: url(../img/event.svg) center center no-repeat;
+    background-size: cover;
+  }
+  &:nth-child(2){
+    background: url(../img/traiteur.svg) center center no-repeat;
+    background-size: cover;
+  }
+  &:nth-child(3){
+    background: url(../img/team.svg) center center no-repeat;
+    background-size: cover;
+  }
+}
+
+
+#services{
+  height: 1000px;
+}
+
+.col_serv_hover{
+  background: color(font, dark);
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: opacity ease .5s;
+  -moz-transition: opacity ease .5s;
+  -ms-transition: opacity ease .5s;
+  transition: opacity ease .5s;
+}
+.col2:nth-child(1){
+  background: url(../img/traiteur.svg) center center no-repeat;
+  background-size: cover;
+
+}
+.col2:nth-child(2){
+  background: url(../img/traiteur.svg) center center no-repeat;
+  background-size: cover;
+}
+.col2:nth-child(3){
+  background: url(../img/traiteur.svg) center center no-repeat;
+  background-size: cover;
+
+}
+
+.services_hover{ background: color(font, dark); height: 100%; transition: opacity ease .5s;
+  
+  h3{ margin: 0 auto; text-align: center; font-size: 40px; }
+  p{ width: 70%; padding-top: 30px; font-family: 'thin'; color: color(font, clear); }
+}
+.services:hover 
+.col_serv_hover {
+  opacity: 0.9;
+  background-color: rgba(150, 6, 31, 0.7);
+  transition: opacity ease .4s;
+}
+
+section.container { padding-top:40px; }
+
+@import "home";
+@import "contact";
+@import "admin";

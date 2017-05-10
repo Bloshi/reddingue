@@ -1,0 +1,110 @@
+$colors: (
+	font: (
+		p: #fff,
+		noir: #323433,
+		form: #323433,
+		error: #d32f2f,
+		success: #43a047,
+		selected: #D32F2F, 
+		dark: #1F2527, 
+		clear: #F3EBDE
+	),
+	background: (
+        white: #fff,
+		base: #000,
+		transparent: rgba(0,0,0,.6),
+		darkgrey: #212121, 
+		error: #d32f2f,
+		success: #43a047,
+		clear: #eeeeee
+	),
+	light: (
+		background: #b0bec5,
+		white: #eceff1
+	),
+	flash: (
+		danger: #d32f2f,
+		success: #388e3c
+	)
+);
+$z-layers: ( 
+	bottomless-pit: -9999,
+	default: 1,
+	dropdown: 3000,
+	overlay: 4000,
+	modal: 4001
+);
+
+@import "tools/function";
+
+$border: 1px solid;
+$wrap: 1200px;
+
+$_ftZ: 18px;
+
+html, body { height: 100%; }
+body, p, input, button, select, textarea { @include font-size(20px); @include line-height(20); font-family: 'lato', 'helvetica', 'arial', 'sans-serif'; color: color(font,p); }
+input, textarea { color: color(font, form); }
+article p, form { @include para-max(20); margin: 20px auto; }
+article, p, legend { a { display: inline; } }
+a { color: color(font, clear); @extend ._trs; display: block; }
+small { @include font-size(12px); @include line-height(12); }
+
+input, textarea, label, select { width: 100%;
+	&._danger { border-color: color(font,danger) !important; } 
+}
+textarea { height: 200px; padding-top: 10px; padding-bottom: 10px; }
+button._btn, a._btn { @include size(100%,40px); border-radius: 5px; border: $border color(font,p); background-color: color(font,p);
+	color: color(background,base); text-align: center; text-transform: capitalize; @extend ._trs;
+	&:hover { background-color: transparent; color: color(font,p); }
+
+	&._revers { background-color: transparent; color: color(font,p); 
+		&:hover { background-color: color(font,p); color: color(background,base); }
+	}
+}
+
+form input { input, select, textarea { color: color(font, form) !important; } }
+
+.keyline { @include size(60%,1px); background-color: #333; @include opacity(.2); margin: 40px auto; @include clearfix; }
+.wrap { width: $wrap; margin: 0 auto; 
+	@include max-screen($wrap) { width: 100%; padding-left: 10px; padding-right: 10px; }
+}
+
+// extends
+._trs { transition: all 200ms ease-in-out; }
+.__btn  { cursor: pointer; display: block; }
+._border { border: $border color(font,p); }
+ 
+._champ { @include size(100%, 40px); @extend ._border; margin-bottom: 20px; }
+._textarea { @extend ._champ; height: 100%; }
+
+
+// grid
+.row { @include clearfix;
+	.columns { float: left; padding: 0 10px;
+		@for $i from 1 through 13 {
+		    $w: $i * 8.3333;
+
+		    &.coll-#{$i} {
+		        width: $w + %;
+		    }
+		}
+		&.u-pull-left  { float:  left; }
+		&.u-pull-right { float: right; }
+	}
+}
+.full-w-h { @include size(100%); }
+
+table { @include size(100%, auto); margin: 20px 0;
+	thead { @include size(100%,40px); border-bottom: $border color(font, p); background-color: rgba(255,255,255,.1);
+		td { float: left; line-height: 40px; }
+	}
+	tbody { @include size(100%,auto);
+		tr { border-bottom: $border rgba(255, 255, 255, .4); @include size(100%,30px); 
+			td { line-height: 30px; }
+		}
+	}
+	td { display: block; width: auto; }
+}
+
+

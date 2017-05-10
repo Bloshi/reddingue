@@ -1,0 +1,32 @@
+main.admin-espace { padding: 80px 0; 
+	aside.admin-nav { @include size(300px,100%); float: left; 
+		ul { height: 100%; 
+			li { padding: 10px 20px; 
+				a { color: color(font, clear); 
+					&.active { text-decoration: underline; }
+				}
+			}
+		}
+	}
+	section.admin-container { 
+		nav.filter-admin { @include size(100%,60px); margin: 20px 0;
+			ul { @include size(100%);
+				li { float: left; 
+					a { color: color(font,p); margin: auto; }
+				}
+			}
+		}
+	
+		main.admin-view { @include size(calc(100% - 300px), 100%); float: right; padding: 0 20px;
+			form { margin-left: 0; }
+		}
+
+		table { margin: 40px 0; }
+	}
+}
+
+output#list-show--up_img { display: block; @include size(100%,auto); padding: 10px 0;
+	span { display: block; width: 25%; float: left; padding: 0 4px; 
+		img { display: block; width: 100%; }
+	}
+}

@@ -1,0 +1,26 @@
+{
+  "name": "culturama",
+  "version": "1.0.0",
+  "description": "examen veille technologique EICVN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Magenta Corp",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-coffee": "^2.3.4",
+    "gulp-concat": "latest",
+    "gulp-sass": "latest",
+    "gulp-uglify": "latest",
+    "gulp-util": "^3.0.8"
+  },
+  "devDependencies": {
+    "gulp-concat": "^2.6.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-size": "^2.1.0"
+  }
+}
